@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.MessageDigest;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
