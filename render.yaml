@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cosmos-chatbot-service
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_INTERNAL_SECRET
+        sync: false
+      - key: GEMINI_SERVICE_URL
+        value: https://gemini-service-jecn.onrender.com
