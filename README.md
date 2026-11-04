@@ -1,6 +1,6 @@
-# 🤖 VoltFind - Chatbot Microservice
+# 🤖 Chatbot Microservice
 
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
 [![Render](https://img.shields.io/badge/Deployment-Render-46e3b7.svg)](https://render.com)
@@ -13,14 +13,11 @@ The **Chatbot Service** is a dedicated conversational intelligence microservice 
 ## 🏗️ Architecture & Flow
 
 ```
-                      ┌────────────────────────┐
-                      │    VoltFind Frontend   │
-                      │  (Mobile App / Web)    │
-                      └───────────┬────────────┘
+                      
                                   │ HTTPS (port 8080 API Gateway)
                                   ▼
                       ┌────────────────────────┐
-                      │    API Gateway         │
+                      │   API Gateway (8080)   │
                       │ (Injects Internal Key) │
                       └───────────┬────────────┘
                                   │ HTTP + X-Internal-Secret
@@ -128,9 +125,9 @@ Routes user queries with real-time geolocation context and multi-turn conversati
 | :--- | :--- | :--- |
 | `server.port` | `8093` | Embedded Tomcat HTTP port |
 | `APP_INTERNAL_SECRET` | *Configured HMAC secret* | Internal microservice authentication secret |
-| `GEMINI_SERVICE_URL` | `https://gemini-service-jecn.onrender.com` | Base URL of downstream Gemini LLM Service |
+| `GEMINI_SERVICE_URL` | `gemini_api_url` | Base URL of downstream Gemini LLM Service |
 
-Copy `.env.example` to `.env` or set environment variables in your hosting provider:
+Create`.env` or set environment variables in your hosting provider:
 ```bash
 GEMINI_SERVICE_URL=http://localhost:8092
 APP_INTERNAL_SECRET=your_internal_shared_secret_here
@@ -176,7 +173,7 @@ docker build -t voltfind-chatbot:latest .
 docker run -d \
   -p 8093:8093 \
   -e APP_INTERNAL_SECRET="your_secret" \
-  -e GEMINI_SERVICE_URL="https://gemini-service-jecn.onrender.com" \
+  -e GEMINI_SERVICE_URL="gemini_api_url" \
   --name voltfind-chatbot \
   voltfind-chatbot:latest
 ```
@@ -194,4 +191,4 @@ This repository includes a native `render.yaml` blueprint:
 ---
 
 ## 📄 License
-Part of the **VoltFind Microservices Platform**. Internal proprietary software.
+Part of the **Microservices**. Internal proprietary software.
