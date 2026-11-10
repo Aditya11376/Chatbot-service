@@ -190,5 +190,6 @@ This repository includes a native `render.yaml` blueprint:
 
 ---
 
-## 📄 License
-Part of the **Microservices**. Internal proprietary software.
+## 🛡️ License & Copyright
+
+&copy; 2026 **GUPTA SOFTWORKS ORGANISATION**. All rights reserved.  
